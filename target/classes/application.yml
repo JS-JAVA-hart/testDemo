@@ -1,0 +1,58 @@
+server:
+  port: 8090
+  #�������ݿ�
+spring:
+    datasource:
+      username: root
+      password: hp1559
+      url: jdbc:mysql:///test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      type: com.alibaba.druid.pool.DruidDataSource
+      druid:
+        # ����Ϊ���ӳصĲ������ã�Ӧ�õ�������������Դ��
+        # ��ʼ����С����С�����
+        initial-size: 5
+        min-idle: 5
+        max-active: 20
+        # ���û�ȡ���ӵȴ���ʱ��ʱ��
+        max-wait: 60000
+        # ���ü����òŽ���һ�μ�⣬�����Ҫ�رյĿ������ӣ���λ�Ǻ���
+        time-between-eviction-runs-millis: 60000
+        # ����һ�������ڳ�����С�����ʱ�䣬��λ�Ǻ���
+        min-evictable-idle-time-millis: 300000
+        validation-query: SELECT 1 FROM DUAL
+        test-while-idle: true
+        test-on-borrow: false
+        test-on-return: false
+        # ��PSCache������ָ��ÿ��������PSCache�Ĵ�С
+        pool-prepared-statements: true
+        #   ���ü��ͳ�����ص�filters��ȥ�����ؽ���sql�޷�ͳ�ƣ�'wall'���ڷ���ǽ
+        max-pool-prepared-statement-per-connection-size: 20
+        filters: stat,wall
+        use-global-data-source-stat: true
+        # ͨ��connectProperties��������mergeSql���ܣ���SQL��¼
+        connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+        # ���ü�ط�����
+        stat-view-servlet:
+          login-username: admin
+          login-password: 123456
+          reset-enable: false
+          url-pattern: /druid/*
+          # ���IP������
+          #allow:
+          # ���IP�����������������ͺ������ظ�ʱ�����������ȼ�����
+          #deny:
+        web-stat-filter:
+          # ��ӹ��˹���
+          url-pattern: /*
+          # ���Թ��˸�ʽ
+          exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+
+
+
+mybatis:
+       typeAliasesPackage: com.example.demo.entity
+       mapperLocations: classpath:mapper/*.xml
+
+       map-underscore-to-camel-case: true
+
