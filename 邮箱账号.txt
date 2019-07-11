@@ -1,0 +1,23 @@
+自己注册邮箱  
+ hartitcom@gmail.com
+hp511681847
+
+
+github
+hartitcom@gmail.com
+hp511681847
+
+
+
+
+7-9工作日报：
+1. 学习新员工手册
+2. 培训学习彩票的玩法和算法
+3. 电脑基本开发环境搭建
+
+echo "# git" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/JS-JAVA-hart/git.git
+git push -u origin master
